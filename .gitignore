@@ -103,5 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
+# DS store in case of cross operating system use
 .Ds_Store
 
