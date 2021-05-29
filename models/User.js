@@ -7,7 +7,7 @@ class User extends Model {
 }
 
 // boilerplate user template, fields might change depending on our needs
-
+// connect users to categories
 User.init(
     {
         id: {

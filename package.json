@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/dejagraver/get-help-give-help.git"
   },
-  "author": "Heather, Deja, Johny",
+  "author": "Heather, Deja, Johny, Gurkirat",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dejagraver/get-help-give-help/issues"
@@ -24,5 +24,8 @@
     "express-handlebars": "^5.3.2",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
