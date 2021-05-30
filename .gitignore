@@ -106,3 +106,4 @@ dist
 # DS store in case of cross operating system use
 .Ds_Store
 
+.env
