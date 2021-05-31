@@ -25,12 +25,14 @@
             </ul>
             <ul>
                 <li>
-                    <!-- will have handlebar logic to handle sessions -->
-                    <!-- {{#if loggedIn}} -->
-                    <button>logout</button>
-                    <!-- {{else}} -->
-                    <a>sign up or log in</a>
-                    <!-- {{/if}} -->
+                    <nav>
+                        {{#if loggedIn}}
+                        <a href="/dashboard">dashboard</a>
+                        <button id="logout" class="btn-no-style">logout</button>
+                        {{else}}
+                        <a href="/login">login</a>
+                        {{/if}}
+                    </nav>
                 </li>
             </ul>
         </nav>
@@ -47,5 +49,8 @@
             <button>ask for help</button>
         </div>
     </main>
+        {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+        {{/if}}
 </body>
 </html>
