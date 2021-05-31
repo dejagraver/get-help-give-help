@@ -1,0 +1,46 @@
+body {
+    background-image: url('./images/whitecorkboard.jpg');
+    background-repeat: no-repeat;
+    background-position-y: -75px;
+    background-position-x: center;
+    background-size: 1700px;
+    background-color: white;
+}
+
+header nav {
+    margin: 20px 0;
+}
+    header nav ul {
+        display: flex;
+        justify-content: flex-start;
+        list-style: none;
+    }
+
+        header nav ul li a {
+            padding: 10px 70px;
+            font-size: 1.55vw;
+            text-decoration: none;
+        }
+
+        header nav ul li:hover {
+            background: black;
+            border-radius: 15px;
+            text-shadow: none;
+            color: white;
+        }
+
+        #login-logout {
+            margin-left: 400px;
+        }
+
+      
+
+
+nav ul li {
+    color: black;
+}  
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
