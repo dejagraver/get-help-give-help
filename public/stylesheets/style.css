@@ -1,6 +1,7 @@
 /* landing page and global styles */
+/* class = . id = # */
 
-#landingbody {
+body {
     background-image: url('./images/yinyanghor.png');
     background-repeat: no-repeat;
     background-position-y: -75px;
