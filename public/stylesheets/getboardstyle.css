@@ -1,10 +1,10 @@
 body {
-    background-image: url('./images/whitecorkboard.jpg');
+    background-image: url('./images/blackcorkboard.jpg');
     background-repeat: no-repeat;
     background-position-y: -75px;
     background-position-x: center;
-    background-size: 1700px;
-    background-color: white;
+    background-size: 1800px;
+    background-color: rgb(37, 37, 37);
 }
 
 header nav {
@@ -23,10 +23,10 @@ header nav {
         }
 
         header nav ul li:hover {
-            background: black;
+            background: white;
             border-radius: 15px;
             text-shadow: none;
-            color: white;
+            color: black;
         }
 
         #login-logout {
@@ -37,10 +37,11 @@ header nav {
 
 
 nav ul li {
-    color: black;
+    color: white;
 }  
 
 h1 {
     display: flex;
     justify-content: center;
+    color: white;
 }
