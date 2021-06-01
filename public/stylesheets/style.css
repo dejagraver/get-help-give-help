@@ -68,6 +68,11 @@ header nav {
             background: black;
             border-radius: 15px;
             text-shadow: none;
+            text-decoration: none;
+        }
+
+        #givenav {
+            color: white;
         }
 
         #getnav {
@@ -79,9 +84,9 @@ header nav {
             border-radius: 15px;
             text-shadow: none;
             color: white;
+            text-decoration: none;
         }
 
         #login-logout {
             padding-left: 400px;
         }
-
