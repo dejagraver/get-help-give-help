@@ -1,6 +1,7 @@
 /* landing page and global styles */
+/* class = . id = # */
 
-#landingbody {
+body {
     background-image: url('./images/yinyanghor.png');
     background-repeat: no-repeat;
     background-position-y: -75px;
@@ -67,6 +68,11 @@ header nav {
             background: black;
             border-radius: 15px;
             text-shadow: none;
+            text-decoration: none;
+        }
+
+        #givenav {
+            color: white;
         }
 
         #getnav {
@@ -78,9 +84,9 @@ header nav {
             border-radius: 15px;
             text-shadow: none;
             color: white;
+            text-decoration: none;
         }
 
         #login-logout {
             padding-left: 400px;
         }
-
