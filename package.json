@@ -12,7 +12,7 @@
     "url": "git+https://github.com/dejagraver/get-help-give-help.git"
   },
   "author": "Heather, Deja, Johny",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dejagraver/get-help-give-help/issues"
   },
@@ -22,8 +22,10 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
     "firebase": "^8.6.3",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2"
-  }
+  },
+  "devDependencies": {}
 }

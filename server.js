@@ -1,44 +1,43 @@
 const path = require('path');
-const express = require ('express');
+const express = require('express');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sequelize = require('./config/connection');
-// for session
-// const SequilizeStore = require('connect-session-sequelize')(session.Store);
+const sequelize = require("./config/connection");
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// const sess = {
-//     secret: 'Super secret secret',
-//     cookie: {},
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({
-//         db: sequelize
-//     })
-// };
+const sess = {
+  secret: 'Super secret secret',
+  //the following is to logout after 60 seconds)
+  cookie: {maxAge: 600000},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
-// app.use(session(sess));
+app.use(session(sess));
 
-// for helpers if we want to use them
-//const helpers = require('./utils/helpers');
+//check why we need helpers, so do we need the deleted code?
 
-const hbs = exphbs.create({});
+
+const hbs = exphbs.create({ helpers });
+
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+//check why we need public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// connection to routes
-app.use(require('./controllers/'));
+app.use(require('./config/connection'));
 
-// turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening'));
 });
-
-
