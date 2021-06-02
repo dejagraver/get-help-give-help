@@ -90,3 +90,8 @@ header nav {
         #login-logout {
             padding-left: 400px;
         }
+        
+        #navlogin {
+            text-decoration: none;
+            color: white;
+        }

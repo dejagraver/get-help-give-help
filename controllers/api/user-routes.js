@@ -1,6 +1,20 @@
 const router = require('express').Router();
-
 const { User, Post, Category, Comment, UserCategory } = require('../../models');
+const firebase = require('firebase/app');
+require('firebase/auth');
+
+var firebaseConfig = {
+    apiKey: "AIzaSyD4a1zBHTz5WCT__Y7IaGvMFKlS03nknJI",
+    authDomain: "get-help-give-help-3fc47.firebaseapp.com",
+    projectId: "get-help-give-help-3fc47",
+    storageBucket: "get-help-give-help-3fc47.appspot.com",
+    messagingSenderId: "83016709803",
+    appId: "1:83016709803:web:8d79f75beb5c5f006769ee",
+    measurementId: "G-27VGBMGRRV"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 
 router.get('/', (req, res) => {
     User.findAll({ attributes: { exclude: ['password'] } })
@@ -52,13 +66,66 @@ router.get('/:id', (req, res) => {
         })
 });
 
-// router.post('/', (req,res) => {
-//     User.create(
+// signup route
+router.post('/', (req, res) => {
+    firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
+        .then(userCredentials => {
+            console.log(userCredentials);
+            res.json(userCredentials);
+
+            User.create(
+                {
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.email
+                }
+            )
+                .then(dbUserData => console.log(dbUserData))
+                .catch(err => {
+                    console.log(err);
+                })
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        });
+
+
+
+    // User.create(
+    //     {
+    //         first_name: req.body.first_name,
+    //         last_name: req.body.last_name,
+    //         email: req.body.email,
+    //         password: req.body.password
+    //     }
+    // )
+    //     .then(dbUserData => res.json(dbUserData))
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.status(500).json(err);
+    //     });
+
+});
+
+// login route
+router.post('/login', (req, res) => {
+    firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+        .then(userCredentials => {
+            console.log(userCredentials);
+            res.json(userCredentials);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        })
+});
+
+// research making PUT requests to firebase api
+// router.put('/email', (req, res) => {
+//     User.update(
 //         {
-//             first_name: req.body.first_name,
-//             last_name: req.body.last_name,
-//             email: req.body.email,
-//             password: req.body.password
+//             first_name: req.body.first_name
 //         }
 //     )
 // })
