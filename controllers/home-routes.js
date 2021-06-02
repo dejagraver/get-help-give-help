@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+    res.locals.loginStyleSheet = `loginstyle`;
     res.render('login');
   });
   
