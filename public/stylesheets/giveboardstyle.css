@@ -20,6 +20,7 @@ header nav {
             padding: 10px 70px;
             font-size: 1.55vw;
             text-decoration: none;
+            color: black;
         }
 
         header nav ul li:hover {
@@ -29,12 +30,14 @@ header nav {
             color: white;
         }
 
+        header nav ul li a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
         #login-logout {
             margin-left: 400px;
         }
-
-      
-
 
 nav ul li {
     color: black;
