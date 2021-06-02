@@ -1,3 +1,9 @@
+body {
+    background-image: url('./images/whitecorkboard2.jpg');
+    background-repeat: no-repeat;
+    background-size: 2000px;
+}
+
 #full-login-page {
     margin: 50px;
 }
