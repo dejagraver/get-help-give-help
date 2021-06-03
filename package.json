@@ -1,18 +1,19 @@
 {
   "name": "get-help-give-help",
   "version": "1.0.0",
-  "description": "",
+  "description": "repo",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dejagraver/get-help-give-help.git"
   },
   "author": "Heather, Deja, Johny, Gurkirat",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dejagraver/get-help-give-help/issues"
   },
@@ -25,7 +26,9 @@
     "express-handlebars": "^5.3.2",
     "express-session": "^1.17.2",
     "firebase": "^8.6.3",
+    "handlebars": "^4.7.7",
     "mysql2": "^2.2.5",
+    "seed": "^0.4.4",
     "sequelize": "^6.6.2"
   },
   "devDependencies": {
