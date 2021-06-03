@@ -22,19 +22,24 @@
                     <a id="getnav">Get Help Board</a>
                 </li>
                 <li id="login-logout">
-                    <!-- will have handlebar logic to handle sessions -->
-                    <!-- {{#if loggedIn}} -->
-                    <button class="btn btn-light">logout</button>
-                    <!-- {{else}} -->
-                    <a>sign up or log in</a>
-                    <!-- {{/if}} -->
-                </li>
-            </ul>
-        </nav>
-    </header>
-<body>
-    <div>
-        <h1>Give Help Board</h1>
-    </div>
-</body>
-</html>
+                        <nav>
+                            {{#if loggedIn}}
+                            <a href="/dashboard">dashboard</a>
+                            <button id="logout" class="btn btn-light">logout</button>
+                            {{else}}
+                            <a href="/login">login</a>
+                            {{/if}}
+                          </nav>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    <body>
+        <div>
+            <h1>Give Help Board</h1>
+        </div>
+        {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+        {{/if}}
+    </body>
+    </html>
