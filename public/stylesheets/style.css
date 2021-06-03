@@ -91,13 +91,17 @@ header nav {
         }
 
         #login-logout {
-            padding-left: 400px;
+            padding-left: 350px;
         }
         
         #navlogin {
             text-decoration: none;
             color: white;
         }
+
+#create-new {
+    color: white;
+}
 
 @media only screen and (max-width: 600px) {
     body {
