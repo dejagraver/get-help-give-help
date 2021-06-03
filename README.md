@@ -3,12 +3,6 @@
 ## Description
 An app for users to post ways in which they'd like to offer help or post volunteer opportunities. 
 
-## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license) 
-* [Demo](#demo-video) 
-
 ## Installation
 * dotenv
 * mysql2
@@ -28,3 +22,5 @@ ISC
 
 ## Deployed App 
 https://fast-sands-25080.herokuapp.com/
+
+## Credits
