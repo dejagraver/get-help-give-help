@@ -113,6 +113,14 @@ router.post('/login', (req, res) => {
     firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
         .then(userCredentials => {
             console.log(userCredentials);
+            const uid = 'users-uid';
+            admin
+            .auth()
+            .createCustomToken(uid)
+            .then((customToken) => {
+            // Send token back to client
+            })
+            .catch((error) => {
             res.json(userCredentials);
         })
         .catch(err => {

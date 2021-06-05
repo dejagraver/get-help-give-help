@@ -1,5 +1,4 @@
-
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyD4a1zBHTz5WCT__Y7IaGvMFKlS03nknJI",
@@ -63,12 +62,14 @@ function login(event) {
       });
   
       if (response.ok) {
+    console.log('Error creating custom token:', error);
+  };
         document.location.replace('/dashboard/');
       } else {
         alert(response.statusText);
       }
     }
-  }
+  
   
   function logout() {
     const response = await fetch('/api/users/logout', {
@@ -105,54 +106,54 @@ function login(event) {
 //   userData.put("revokeTime", revocationSecond);
 //   ref.setValueAsync(userData);
 
-  // try {
-  //   // Verify the ID token while checking if the token is revoked by passing checkRevoked
-  //   // as true.
-  //   boolean checkRevoked = true;
-  //   FirebaseToken decodedToken = FirebaseAuth.getInstance()
-  //       .verifyIdToken(idToken, checkRevoked);
-  //   // Token is valid and not revoked.
-  //   String uid = decodedToken.getUid();
-  // } catch (FirebaseAuthException e) {
-  //   if (e.getAuthErrorCode() == AuthErrorCode.REVOKED_ID_TOKEN) {
-  //     // Token has been revoked. Inform the user to re-authenticate or signOut() the user.
-  //   } else {
-  //     // Token is invalid.
-  //   }
-  // }
+//   try {
+//     // Verify the ID token while checking if the token is revoked by passing checkRevoked
+//     // as true.
+//     boolean checkRevoked = true;
+//     FirebaseToken decodedToken = FirebaseAuth.getInstance()
+//         .verifyIdToken(idToken, checkRevoked);
+//     // Token is valid and not revoked.
+//     String uid = decodedToken.getUid();
+//   } catch (FirebaseAuthException e) {
+//     if (e.getAuthErrorCode() == AuthErrorCode.REVOKED_ID_TOKEN) {
+//       // Token has been revoked. Inform the user to re-authenticate or signOut() the user.
+//     } else {
+//       // Token is invalid.
+//     }
+//   }
 
-  // app.post('/getRestrictedData', (req, res) => {
-  //   // Get the ID token passed.
-  //   const idToken = req.body.idToken;
-  //   // Verify the ID token, check if revoked and decode its payload.
-  //   admin.auth().verifyIdToken(idToken, true).then((claims) => {
-  //     // Get the user's previous IP addresses, previously saved.
-  //     return getPreviousUserIpAddresses(claims.sub);
-  //   }).then(previousIpAddresses => {
-  //     // Get the request IP address.
-  //     const requestIpAddress = req.connection.remoteAddress;
-      // Check if the request IP address origin is suspicious relative to previous
-      // IP addresses. The current request timestamp and the auth_time of the ID
-      // token can provide additional signals of abuse especially if the IP address
-      // suddenly changed. If there was a sudden location change in a
-      // short period of time, then it will give stronger signals of possible abuse.
-  //     if (!isValidIpAddress(previousIpAddresses, requestIpAddress)) {
-  //       // Invalid IP address, take action quickly and revoke all user's refresh tokens.
-  //       revokeUserTokens(claims.uid).then(() => {
-  //         res.status(401).send({error: 'Unauthorized access. Please login again!'});
-  //       }, error => {
-  //         res.status(401).send({error: 'Unauthorized access. Please login again!'});
-  //       });
-  //     } else {
-  //       // Access is valid. Try to return data.
-  //       getData(claims).then(data => {
-  //         res.end(JSON.stringify(data);
-  //       }, error => {
-  //         res.status(500).send({ error: 'Server error!' })
-  //       });
-  //     }
-  //   });
-  // });
+//   app.post('/getRestrictedData', (req, res) => {
+//     // Get the ID token passed.
+//     const idToken = req.body.idToken;
+//     // Verify the ID token, check if revoked and decode its payload.
+//     admin.auth().verifyIdToken(idToken, true).then((claims) => {
+//       // Get the user's previous IP addresses, previously saved.
+//       return getPreviousUserIpAddresses(claims.sub);
+//     }).then(previousIpAddresses => {
+//       // Get the request IP address.
+//       const requestIpAddress = req.connection.remoteAddress;
+//       // Check if the request IP address origin is suspicious relative to previous
+//       // IP addresses. The current request timestamp and the auth_time of the ID
+//       // token can provide additional signals of abuse especially if the IP address
+//       // suddenly changed. If there was a sudden location change in a
+//       // short period of time, then it will give stronger signals of possible abuse.
+//       if (!isValidIpAddress(previousIpAddresses, requestIpAddress)) {
+//         // Invalid IP address, take action quickly and revoke all user's refresh tokens.
+//         revokeUserTokens(claims.uid).then(() => {
+//           res.status(401).send({error: 'Unauthorized access. Please login again!'});
+//         }, error => {
+//           res.status(401).send({error: 'Unauthorized access. Please login again!'});
+//         });
+//       } else {
+//         // Access is valid. Try to return data.
+//         getData(claims).then(data => {
+//           res.end(JSON.stringify(data);
+//         }, error => {
+//           res.status(500).send({ error: 'Server error!' })
+//         });
+//       }
+//     });
+//   });
 
 //   function onIdTokenRevocation() {
 //     // For an email/password user. Prompt the user for the password again.
