@@ -36,7 +36,11 @@ header nav {
         }
 
         #login-logout {
-            margin-left: 400px;
+            margin-left: 350px;
+        }
+
+        #create-new {
+            color: white;
         }
 
 nav ul li {

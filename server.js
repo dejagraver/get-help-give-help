@@ -1,16 +1,18 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
-
+const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+require('dotenv').config();
+
 const sequelize = require('./config/connection');
 
-// const SequilizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -22,7 +24,7 @@ const sess = {
 app.use(session(sess));
 
 // for helpers if we want to use them
-const helpers = require('./utils/helpers');
+// const helpers = require('./utils/helpers');
 
 const hbs = exphbs.create({});
 
