@@ -148,6 +148,7 @@ router.post('/logout', (req, res) => {
     }
 })
 
+//SESSION CODE
 //for every authenticated request inspect the ID token and 
 //check if the request's IP address matches previous trusted IP addresses 
 //or is within a trusted range before allowing access to restricted data
