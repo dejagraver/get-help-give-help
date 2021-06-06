@@ -148,50 +148,5 @@ router.post('/logout', (req, res) => {
     }
 })
 
-// //SESSION CODE
-// //for every authenticated request inspect the ID token and 
-// //check if the request's IP address matches previous trusted IP addresses 
-// //or is within a trusted range before allowing access to restricted data
-// app.post('/getRestrictedData', (req, res) => {
-//     // Get the ID token passed.
-//     const idToken = req.body.idToken;
-//     // Verify the ID token, check if revoked and decode its payload.
-//     admin.auth().verifyIdToken(idToken, true).then((claims) => {
-//       // Get the user's previous IP addresses, previously saved.
-//       return getPreviousUserIpAddresses(claims.sub);
-//     }).then(previousIpAddresses => {
-//       // Get the request IP address.
-//       const requestIpAddress = req.connection.remoteAddress;
-//       // Check if the request IP address origin is suspicious relative to previous
-//       // IP addresses. The current request timestamp and the auth_time of the ID
-//       // token can provide additional signals of abuse especially if the IP address
-//       // suddenly changed. If there was a sudden location change in a
-//       // short period of time, then it will give stronger signals of possible abuse.
-//       if (!isValidIpAddress(previousIpAddresses, requestIpAddress)) {
-//         // Invalid IP address, take action quickly and revoke all user's refresh tokens.
-//         revokeUserTokens(claims.uid).then(() => {
-//           res.status(401).send({error: 'Unauthorized access. Please login again!'});
-//         }, error => {
-//           res.status(401).send({error: 'Unauthorized access. Please login again!'});
-//         });
-//       } else {
-//         // Access is valid. Try to return data.
-//         getData(claims).then(data => {
-//           res.end(JSON.stringify(data));
-//         }, error => {
-//           res.status(500).send({ error: 'Server error!' });
-//         });
-//       }
-//     });
-//   });
-
-// research making PUT requests to firebase api
-// router.put('/email', (req, res) => {
-//     User.update(
-//         {
-//             first_name: req.body.first_name
-//         }
-//     )
-// })
 
 module.exports = router;
