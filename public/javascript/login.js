@@ -37,7 +37,8 @@
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        //check dashboard
+        document.location.replace('/giveboard/');
       } else {
         alert(response.statusText);
       }
@@ -64,7 +65,8 @@ function login(event) {
       if (response.ok) {
     console.log('Error creating custom token:', error);
   };
-        document.location.replace('/dashboard/');
+  //check dashboard
+        document.location.replace('/giveboard/');
       } else {
         alert(response.statusText);
       }
