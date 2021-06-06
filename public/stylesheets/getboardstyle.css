@@ -56,8 +56,13 @@ h1 {
 .post {
     background-color: white;
     padding-bottom: 20px;
+    padding-left: 10px;
     margin-right: 100px;
     margin-top: 50px;
+}
+
+li {
+    list-style: none;
 }
 
 img {
