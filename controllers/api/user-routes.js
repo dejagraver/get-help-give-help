@@ -91,35 +91,65 @@ router.post('/', (req, res) => {
         });
 
 
-
-    // User.create(
-    //     {
-    //         first_name: req.body.first_name,
-    //         last_name: req.body.last_name,
-    //         email: req.body.email,
-    //         password: req.body.password
-    //     }
-    // )
-    //     .then(dbUserData => res.json(dbUserData))
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json(err);
-    //     });
-
 });
 
 // login route
 router.post('/login', (req, res) => {
     firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
         .then(userCredentials => {
-            console.log(userCredentials);
-            res.json(userCredentials);
+            // console.log(userCredentials);
+            // res.json(userCredentials);
+
+            if (!userCredentials) {
+                res.status(404).json({ message: 'No user found with that email address! Please sign up.' });
+                return;
+            }
+
+            // storing user information in session cookies
+            req.session.save(() => {
+                req.session.user_id = userCredentials.user.uid;
+                req.session.username = userCredentials.user.email;
+                req.session.loggedIn = true;
+
+                res.json({ user: userCredentials, message: 'You are now logged in!' });
+            });
         })
         .catch(err => {
             console.log(err);
             res.json(err);
         })
 });
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+
+        console.log('this works');
+
+        firebase.auth().signOut()
+            .then(() => {
+                req.session.destroy(() => {
+                    res.status(204).json({ message: 'Successfully logged out' }).end();
+                })
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(404).json(err);
+            })
+
+
+
+        // req.session.destroy(() => {
+        //     firebase.auth().signOut().then(() => {
+        //         res.status(204).json({ message: 'You have been successfully logged out!' }).end();
+        //     }).catch(err => {
+        //         console.log(err);
+        //         res.status(404).end();
+        //     });
+        // })
+    } else {
+        res.status(404).end();
+    }
+})
 
 // research making PUT requests to firebase api
 // router.put('/email', (req, res) => {

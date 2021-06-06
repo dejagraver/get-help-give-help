@@ -18,22 +18,27 @@
   {{#if getBoardStyleSheet}}
   <link rel="stylesheet" href="/stylesheets/{{getBoardStyleSheet}}.css">
   {{/if}}
-
+  {{#if loginStyleSheet}}
+  <link rel="stylesheet" href="/stylesheets/{{loginStyleSheet}}.css">
+  {{/if}}
 </head>
 
 {{!--
 
 <body>
-  <div>{{{body}}}</div>
-  {{#if loginStyleSheet}}
-  <link rel="stylesheet" href="/stylesheets/{{loginStyleSheet}}.css" {{/if}} </head> --}}
+  <div>{{{body}}}</div>--}}
+
 
   <body>
     <div>{{{body}}}</div>
 
+    {{!--
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-login.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script> --}}
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
     {{!--
     <script>
       // Initialize Firebase

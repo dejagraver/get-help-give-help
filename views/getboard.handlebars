@@ -12,11 +12,11 @@
                 <a href="/getboard"><u>Get Help Board</u></a>
             </li>
             <li id="login-logout">
-                {{#if login}} 
-                    <a href="">Create New Post</a>
-                    <button class="btn btn-light">logout</button>
-                {{else}} 
-                    <a href="/login" id="navlogin">sign up or log in</a>
+                {{#if loggedIn}}
+                <a href="">Create New Post</a>
+                <button class="btn btn-light">logout</button>
+                {{else}}
+                <a href="/login" id="navlogin">sign up or log in</a>
                 {{/if}}
             </li>
         </ul>
