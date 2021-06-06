@@ -65,6 +65,10 @@ router.get('/:id', (req, res) => {
                 {
                     model: Category,
                     attributes: ['id', 'name']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'user_id', 'post_id']
                 }
             ]
         }
