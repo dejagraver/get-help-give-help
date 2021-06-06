@@ -37,6 +37,10 @@ router.get('/getboard', (req, res) => {
             {
                 model: Category,
                 attributes: ['id', 'name']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'user_id', 'post_id']
             }
         ]
     })
@@ -96,5 +100,55 @@ router.post('/', (req, res) => {
             })
     }
 });
+
+router.put('/:id', (req, res) => {
+    if (req.session.loggedIn) {
+        Post.update(
+            {
+                title: req.body.title,
+                content: req.body.content,
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+            .then(dbPostData => {
+                if (!dbPostData) {
+                    res.status(404).json({ message: 'No post found with that id.' });
+                    return;
+                }
+                res.json(dbPostData);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
+    }
+});
+
+router.delete('/:id', (req, res) => {
+    if (req.session.loggedIn) {
+        Post.destroy(
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+            .then(dbPostData => {
+                if (!dbPostData) {
+                    res.status(404).json({ message: 'No post found with that id.' });
+                    return;
+                }
+                res.json(dbPostData);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
+    }
+})
 
 module.exports = router;
