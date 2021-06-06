@@ -26,3 +26,24 @@
     <h1>Give Help Board</h1>
 </div>
 {{!-- posts --}}
+<ol class="post-list" style="color: orange">
+    {{#each posts as |post|}}
+    <li>
+        <article class="post">
+            <div class="title">
+                <a href="/getboard/{{post.id}}" target="_blank">{{post.title}}</a>
+                <span>{{post.content}}</span>
+                <span>Posted by: {{post.user.first_name}} {{post.user.last_name}}</span>
+            </div>
+            <div class="meta">
+                {{#if post.comments.length}}
+                <span>Comments</span>
+                {{#each post.comments}}
+                <span>{{comment_text}}</span>
+                {{/each}}
+                {{/if}}
+            </div>
+        </article>
+    </li>
+    {{/each}}
+</ol>
