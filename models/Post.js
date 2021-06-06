@@ -37,6 +37,10 @@ Post.init(
                 model: 'category',
                 key: 'id'
             }
+        },
+        isGiveHelp: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     },
     {
