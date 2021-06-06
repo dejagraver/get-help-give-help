@@ -38,7 +38,7 @@ Post.init(
                 key: 'id'
             }
         },
-        isGiveHelp: {
+        is_give_help: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         }
