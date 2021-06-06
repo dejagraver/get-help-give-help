@@ -27,15 +27,16 @@ router.get('/', (req, res) => {
     )
         .then(dbPostData => {
             console.log(dbPostData);
+            const posts = dbPostData.map(post => post.get({ plain: true }));
+            res.render('getboard', { posts, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         })
 
-
     res.locals.getBoardStyleSheet = `getboardstyle`;
-    res.render('getboard', { loggedIn: req.session.loggedIn });
+
 });
 
 module.exports = router;
