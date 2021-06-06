@@ -20,7 +20,7 @@ async function newFormHandler(event) {
     if (response.ok) {
 
         //fix following destination if needed, this was to display same post on dashboard
-      document.location.replace('/dashboard');
+      document.location.replace('/giveboard');
     } else {
       alert(response.statusText);
     }

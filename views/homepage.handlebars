@@ -1,37 +1,38 @@
-    <header >
-        <nav class="topnav" id="myTopnav">
-            <ul>
-                <li>
-                    <a><u>Home</u></a>
-                </li>
-                <li>
-                    <a href="/giveboard" id="givenav">Give Help Board</a>
-                </li>
-                <li>
-                    <a href="/getboard" id="getnav">Get Help Board</a>
-                </li>
-                <li id="login-logout">
-                    <!-- will have handlebar logic to handle sessions -->
-                    <!-- {{#if loggedIn}} -->
-                    <button class="btn btn-light">logout</button>
-                    <!-- {{else}} -->
-                    <a href="/login" id="navlogin">sign up or log in</a>
-                    <!-- {{/if}} -->
-                </li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <div>
-            <h1>Get Help Give Help</h1>
-        </div>
-        <div class="alignbtns">
-            <div>
-                <a type="button" class="btn btn-light btn-lg"  id="givebtn" href="/giveboard">give help</a>
-            </div>
-            <div>
-                <a type="button" class="btn btn-dark btn-lg" id="getbtn" href="/getboard">get help</a>
-            </div>
+
+
+<header>
+    <nav class="topnav" id="myTopnav">
+        <ul>
+            <li>
+                <a><u>Home</u></a>
+            </li>
+            <li>
+                <a href="/giveboard" id="givenav">Give Help Board</a>
+            </li>
+            <li>
+                <a href="/getboard" id="getnav">Get Help Board</a>
+            </li>
+            <li id="login-logout">
+                <!-- will have handlebar logic to handle sessions -->
+                {{#if loggedIn}}
+                <a href="/">Create New Post</a>
+                <button class="btn btn-light" id="logoutBtn">logout</button>
+                {{else}}
+                <a href="/login" id="navlogin">sign up or log in</a>
+                {{/if}}
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div>
+        <h1>Get Help Give Help</h1>
+    </div>
+     <div>
+            <a type="button" class="btn btn-dark btn-lg" id="getbtn" href="/getboard">get help</a>
         </div>
     </main>
+    </div>
+</main> 
+
