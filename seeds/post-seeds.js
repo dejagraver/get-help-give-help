@@ -14,6 +14,13 @@ const postData = [
         user_id: 1,
         category_id: 2,
         is_give_help: false
+    },
+    {
+        title: 'Test mctesterson',
+        content: 'Test content for seeded post. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        user_id: 1,
+        category_id: 2,
+        is_give_help: false
     }
 ];
 
