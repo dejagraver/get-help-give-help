@@ -54,13 +54,10 @@ h1 {
 }
 
 .post {
-    /* display: flex;
-    flex-direction: column; */
     background-color: white;
     padding-bottom: 20px;
     margin-right: 100px;
     margin-top: 50px;
-    /* justify-content: center; */
 }
 
 img {
@@ -68,6 +65,4 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 3%;
-    /* justify-content: center; */
-    /* margin-left: 700px; */
 }
