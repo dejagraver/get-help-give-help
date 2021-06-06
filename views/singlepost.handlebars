@@ -1,0 +1,41 @@
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/giveboard">Give Help Board</a>
+      </li>
+      <li>
+        <a href="/getboard"><u>Get Help Board</u></a>
+      </li>
+      <li id="login-logout">
+        {{#if loggedIn}}
+        <a href="">Create New Post</a>
+        <button class="btn btn-light">logout</button>
+        {{else}}
+        <a href="/login" id="navlogin">sign up or log in</a>
+        {{/if}}
+      </li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <h2>{{post.title}}</h2>
+  <span>Created by:{{post.user.first_name}} {{post.user.last_name}}</span>
+  <span>Category: {{post.category.name}}</span>
+  <span>{{post.content}}</span>
+
+
+
+</section>
+
+{{#if post.comments.length}}
+<section>
+  <h2>Comments</h2>
+  {{#each post.comment}}
+  <span>{{post.comment.text}}</span>
+  {{/each}}
+</section>
+{{/if}}
