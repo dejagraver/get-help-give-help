@@ -12,9 +12,9 @@
             </li>
             <li id="login-logout">
                 <!-- will have handlebar logic to handle sessions -->
-                {{#if login}}
-                <a href="">Create New Post</a>
-                <button class="btn btn-light">logout</button>
+                {{#if loggedIn}}
+                <a href="/">Create New Post</a>
+                <button class="btn btn-light" id="logoutBtn">logout</button>
                 {{else}}
                 <a href="/login" id="navlogin">sign up or log in</a>
                 {{/if}}

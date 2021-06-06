@@ -123,6 +123,8 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
 
+        console.log('this works');
+
         firebase.auth().signOut()
             .then(() => {
                 req.session.destroy(() => {
@@ -133,6 +135,8 @@ router.post('/logout', (req, res) => {
                 console.log(err);
                 res.status(404).json(err);
             })
+
+
 
         // req.session.destroy(() => {
         //     firebase.auth().signOut().then(() => {
