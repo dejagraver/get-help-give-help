@@ -1,0 +1,43 @@
+<header>
+  <nav class="topnav" id="myTopnav">
+    <ul>
+      <li>
+        <a href="/"><u>Home</u></a>
+      </li>
+      <li>
+        <a href="/giveboard" id="givenav">Give Help Board</a>
+      </li>
+      <li>
+        <a href="/getboard" id="getnav">Get Help Board</a>
+      </li>
+      <li id="login-logout">
+        <!-- will have handlebar logic to handle sessions -->
+        {{#if loggedIn}}
+        <a href="/" id="create-new">Create New Post</a>
+        <button class="btn btn-light" id="logoutBtn">logout</button>
+        {{else}}
+        <a href="/login" id="navlogin">sign up or log in</a>
+        {{/if}}
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div id="edit-post">
+  <article id="create-post">
+    <form id="edit-post-form">
+      <div class="spacing">
+        <label for="post-title" >Post Title:</label>
+        <input name="post-title" type="text" id="post-title">
+      </div>
+      <div class="spacing">
+        <label for="post-content" id="post-content-label">Post Content:</label>
+        <textarea name="post-content" type="text" id="post-content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary spacing">Edit</button>
+    </form>
+  </article>
+</div>
+{{!-- {{> comments post.comments}} --}}
+
+<script src="/javascript/editpost.js"></script>

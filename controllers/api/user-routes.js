@@ -105,14 +105,22 @@ router.post('/login', (req, res) => {
                 return;
             }
 
-            // storing user information in session cookies
-            req.session.save(() => {
-                req.session.user_id = userCredentials.user.uid;
-                req.session.username = userCredentials.user.email;
-                req.session.loggedIn = true;
+            User.findOne({ where: { email: req.body.email } })
+                .then(dbUserData => {
+                    // storing user information in session cookies
+                    req.session.save(() => {
+                        req.session.firebase_user_id = userCredentials.user.uid;
+                        req.session.user_id = dbUserData.id;
+                        req.session.username = userCredentials.user.email;
+                        req.session.loggedIn = true;
 
-                res.json({ user: userCredentials, message: 'You are now logged in!' });
-            });
+                        res.json({ user: userCredentials, message: 'You are now logged in!' });
+                    })
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(err);
+                })
         })
         .catch(err => {
             console.log(err);

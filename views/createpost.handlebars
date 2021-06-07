@@ -1,0 +1,47 @@
+<header>
+    <nav class="topnav" id="myTopnav">
+        <ul>
+            <li>
+                <a href="/"><u>Home</u></a>
+            </li>
+            <li>
+                <a href="/giveboard" id="givenav">Give Help Board</a>
+            </li>
+            <li>
+                <a href="/getboard" id="getnav">Get Help Board</a>
+            </li>
+            <li id="login-logout">
+                <!-- will have handlebar logic to handle sessions -->
+                {{#if loggedIn}}
+                <button class="btn btn-light" id="logoutBtn">logout</button>
+                {{else}}
+                <a href="/login" id="navlogin">sign up or log in</a>
+                {{/if}}
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<h1>My Posts</h1>
+
+<article id="create-post">
+    <form id="create-post-form">
+        <label>Choose a board:</label>
+        <select id="boardSelect">
+            <option value='1'>Give Help</option>
+            <option value='2'>Get Help</option>
+        </select>
+        <div class="spacing">
+            <label for="post-title">Post Title:</label>
+            <input name="post-title" type="text" id="post-title" class="border border-info">
+        </div>
+        <div class="spacing">
+            <label for="post-content" id="post-content-label">Post Content:</label>
+            <textarea name="post-content" id="post-content" class="border border-info"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary spacing" >Submit</button>
+    </form>
+</article>
+
+<script src="/javascript/create-post.js"></script>

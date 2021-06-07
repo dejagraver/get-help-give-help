@@ -65,6 +65,10 @@ router.get('/:id', (req, res) => {
                 {
                     model: Category,
                     attributes: ['id', 'name']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'user_id', 'post_id']
                 }
             ]
         }
@@ -90,7 +94,7 @@ router.post('/', (req, res) => {
         Post.create({
             title: req.body.title,
             content: req.body.content,
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
             category_id: req.body.category_id
         })
             .then(dbPostData => res.json(dbPostData))

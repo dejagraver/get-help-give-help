@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
     res.locals.homePageStyleSheet = `style`;
@@ -13,5 +14,53 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
+
+router.get('/edit/:id', (req, res) => {
+    if (req.session.loggedIn) {
+        
+        Post.findOne(
+            {
+                where: {
+                    id: req.params.id
+                },
+                include: [
+                    {
+                        model: Comment,
+                        attributes: ['id', 'comment_text', 'user_id', 'post_id'],
+                        include: {
+                            model: User,
+                            attributes: ['first_name', 'last_name', 'email']
+                        }
+                    },
+                    {
+                        model: User,
+                        attributes: ['first_name', 'last_name', 'email']
+                    }
+                ]
+            }
+        )
+            .then(dbPostData => {
+                if (!dbPostData) {
+                    res.status(404).end();
+                }
+                res.locals.giveBoardStyleSheet = 'giveboardstyle';
+                const post = dbPostData.get({ plain: true });
+
+                res.render('editpost', { post, loggedIn: true })
+                
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+        // res.render('editpost', { loggedIn: req.session.loggedIn });
+    }
+});
+
+router.get('/createpost', (req, res) => {
+    res.locals.giveBoardStyleSheet = `giveboardstyle`;
+    if (req.session.loggedIn) {
+        res.render('createpost', { loggedIn: req.session.loggedIn });
+    }
+})
 
 module.exports = router;
