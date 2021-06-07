@@ -1,5 +1,10 @@
 async function editFormHandler(event) {
-  document.location.replace('/editpost');
+  event.preventDefault();
+
+  const currentUrl = window.location.href;
+  const id = currentUrl.split('/')[currentUrl.split('/').length - 1];
+
+  document.location.replace(`/edit/${id}`);
 }
 
 async function deletePostHandler(event) {
@@ -7,14 +12,13 @@ async function deletePostHandler(event) {
 
   const currentUrl = window.location.href;
   const id = currentUrl.split('/')[currentUrl.split('/').length - 1];
-  console.log(id);
 
   const response = await fetch(`/api/posts/${id}`, {
     method: 'DELETE'
   });
 
   if (response.ok) {
-    document.location.replace('/getboard');
+    document.location.replace('/');
   }
   else {
     alert(response.statusText);
