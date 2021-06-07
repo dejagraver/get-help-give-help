@@ -13,7 +13,6 @@
             <li id="login-logout">
                 <!-- will have handlebar logic to handle sessions -->
                 {{#if loggedIn}}
-                <a href="/" id="create-new">Create New Post</a>
                 <button class="btn btn-light" id="logoutBtn">logout</button>
                 {{else}}
                 <a href="/login" id="navlogin">sign up or log in</a>
@@ -23,20 +22,25 @@
     </nav>
 </header>
 
-<article>
+<h1>My Posts</h1>
+
+<article id="create-post">
     <form id="create-post-form">
         <label>Choose a board:</label>
         <select id="boardSelect">
             <option value='1'>Give Help</option>
             <option value='2'>Get Help</option>
         </select>
-        <br><br>
-        <label for="post-title">Post Title:</label>
-        <input name="post-title" type="text" id="post-title">
-        <label for="post-content">Post Content:</label>
-        <textarea name="post-content" id="post-content"></textarea>
-        <br><br>
-        <button type="submit">Submit</button>
+        <div class="spacing">
+            <label for="post-title">Post Title:</label>
+            <input name="post-title" type="text" id="post-title" class="border border-info">
+        </div>
+        <div class="spacing">
+            <label for="post-content" id="post-content-label">Post Content:</label>
+            <textarea name="post-content" id="post-content" class="border border-info"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary spacing" >Submit</button>
     </form>
 </article>
 

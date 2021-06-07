@@ -22,6 +22,7 @@ router.get('/editpost', (req, res) => {
 });
 
 router.get('/createpost', (req, res) => {
+    res.locals.giveBoardStyleSheet = `giveboardstyle`;
     if (req.session.loggedIn) {
         res.render('createpost', { loggedIn: req.session.loggedIn });
     }
