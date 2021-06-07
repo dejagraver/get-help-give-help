@@ -17,10 +17,8 @@ Create an account and ask for help or offer your skills/time to help someone els
 ISC
 
 ## Screenshot
-
-!WILL ADD ON SUNDAY!
+![appscreenshot](public/stylesheets/images/gethelpscreenshot.png)
 
 ## Deployed App 
 https://fast-sands-25080.herokuapp.com/
 
-## Credits
