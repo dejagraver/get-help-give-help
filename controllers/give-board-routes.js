@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
-      'content'
+      'content',
+      'createdAt'
     ]
   })
     .then(dbPostData => {
@@ -21,8 +22,10 @@ router.get('/', (req, res) => {
         //this data is begin read but not appearing on giveboard because of login control issue
   //    const posts = dbPostData.map(post => post.get({ plain: true }));
       res.locals.giveBoardStyleSheet = `giveboardstyle`;
-      res.render('giveboard', { loggedIn: req.session.loggedIn });
-     })
+      res.render('giveboard', { dbPostData, loggedIn: req.session.loggedIn });
+  
+    
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -43,7 +46,7 @@ router.get('/', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
   //the following is link to handlebar for homepage
   console.log(posts);
-        res.render('giveboard', { posts });
+        res.render('giveboard', {posts});
       })
       .catch(err => {
         console.log(err);

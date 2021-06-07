@@ -13,8 +13,8 @@
             </li>
             <li id="login-logout">
                {{#if loggedIn}}
-                <a href="">Create New Post</a>
-                <button class="btn btn-light">logout</button>
+                <a href="/dashboard">Create New Post</a>
+                <button class="btn btn-light" id="logout">logout</button>
                 {{else}}
                 <a href="/login" id="navlogin">sign up or log in</a>
                  {{/if}}
@@ -26,4 +26,5 @@
 <div>
     <h1>Get Help Board</h1>
 </div>
+
 {{!-- posts --}}

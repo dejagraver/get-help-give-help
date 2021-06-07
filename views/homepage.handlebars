@@ -15,8 +15,8 @@
             <li id="login-logout">
                 <!-- will have handlebar logic to handle sessions -->
                 {{#if loggedIn}}
-                <a href="/">Create New Post</a>
-                <button class="btn btn-light" id="logoutBtn">logout</button>
+                <a href="/dashboard">Create New Post</a>
+                <button class="btn btn-light" id="logout">logout</button>
                 {{else}}
                 <a href="/login" id="navlogin">sign up or log in</a>
                 {{/if}}
@@ -34,5 +34,6 @@
         </div>
     </main>
     </div>
+    
 </main> 
 

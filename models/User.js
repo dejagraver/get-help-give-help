@@ -35,6 +35,7 @@ User.init(
     {
         // create hooks for validating passwords
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'user'

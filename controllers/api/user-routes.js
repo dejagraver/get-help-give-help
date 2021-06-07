@@ -4,6 +4,21 @@ const { User, Post, Category, Comment, UserCategory } = require('../../models');
 const firebase = require('firebase/app');
 require('firebase/auth');
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcbrpyTs-25J8Gq8a1tHnx1UNlQ1GgLmQ",
+    authDomain: "get-help-give-help-96893.firebaseapp.com",
+    projectId: "get-help-give-help-96893",
+    storageBucket: "get-help-give-help-96893.appspot.com",
+    messagingSenderId: "493787477490",
+    appId: "1:493787477490:web:a56c9897a83ec872c8276b",
+    measurementId: "G-B7TRKYVV4N"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ 
+/*
 var firebaseConfig = {
     apiKey: "AIzaSyD4a1zBHTz5WCT__Y7IaGvMFKlS03nknJI",
     authDomain: "get-help-give-help-3fc47.firebaseapp.com",
@@ -15,8 +30,7 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
-
+*/
 router.get('/', (req, res) => {
     User.findAll({ attributes: { exclude: ['password'] } })
         .then(dbUserData => res.json(dbUserData))
