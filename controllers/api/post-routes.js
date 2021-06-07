@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Category, Comment, UserCategory } = require('../../models');
 
-//give board is off here to get post data, remove from first line of following route
+//give board is off here to get post data, remove from first
 
 router.get('/', (req, res) => {
     Post.findAll({

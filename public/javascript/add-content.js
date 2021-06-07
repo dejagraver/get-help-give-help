@@ -1,3 +1,6 @@
+//system does not know if logged in or not, add something for authorization
+
+
 async function newFormHandler(event) {
     event.preventDefault();
   //name here belongs to your input or text area name declaration from handlebars
@@ -17,13 +20,6 @@ async function newFormHandler(event) {
       }
     });
   
-    if (response.ok) {
-
-        //fix following destination if needed, this was to display same post on dashboard
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
   }
   //this ID belongs to button, please select your ID
   document.querySelector('.post-btn').addEventListener('submit', newFormHandler);
