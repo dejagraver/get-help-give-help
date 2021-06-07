@@ -23,6 +23,13 @@ header nav {
             color: black;
         }
 
+        #create-new {
+            color: black;
+        }
+        #create-new:hover {
+            color: white;
+        }
+
         header nav ul li:hover {
             background: black;
             border-radius: 15px;
@@ -39,9 +46,7 @@ header nav {
             margin-left: 350px;
         }
 
-        #create-new {
-            color: white;
-        }
+        
 
 nav ul li {
     color: black;
@@ -74,8 +79,6 @@ li {
 #create-post {
     padding: 100px;
     font-size: 30px;
-    display: flex;
-    flex-direction: column;
 }
 
 .spacing {
@@ -90,4 +93,12 @@ li {
 #post-content-label {
     position: relative;
     top: -270px;
+}
+
+.bigger-font {
+    font-size: 30px;
+}
+
+.more-spacing {
+    padding: 50px;
 }

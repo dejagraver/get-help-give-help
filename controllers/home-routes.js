@@ -17,7 +17,7 @@ router.get('/login', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
     if (req.session.loggedIn) {
-        // add stylesheet for editpost here
+        
         Post.findOne(
             {
                 where: {
@@ -43,9 +43,11 @@ router.get('/edit/:id', (req, res) => {
                 if (!dbPostData) {
                     res.status(404).end();
                 }
+                res.locals.giveBoardStyleSheet = 'giveboardstyle';
                 const post = dbPostData.get({ plain: true });
 
                 res.render('editpost', { post, loggedIn: true })
+                
             })
             .catch(err => {
                 res.status(500).json(err);

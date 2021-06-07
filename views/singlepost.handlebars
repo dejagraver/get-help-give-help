@@ -21,20 +21,20 @@
     </ul>
   </nav>
 </header>
-<section>
-  <h2>{{post.title}}</h2>
-  <span>Created by:{{post.user.first_name}} {{post.user.last_name}}</span>
-  <span>Category: {{post.category.name}}</span>
-  <span>{{post.content}}</span>
+<section class="more-spacing">
+  <h2 class="spacing">{{post.title}}</h2>
+  <span class="spacing bigger-font">Created by:{{post.user.first_name}} {{post.user.last_name}}</span>
+  <span class="spacing bigger-font">Category: {{post.category.name}}</span>
+  <span class="spacing bigger-font">{{post.content}}</span>
 
 
 
 </section>
 
 {{#if loggedIn}}
-<section>
-  <button type="button" id="editBtn">Edit Post</button>
-  <button type="button" id="deleteBtn">Delete Post</button>
+<section class="more-spacing spacing">
+  <button type="button" id="editBtn" class="btn btn-primary spacing">Edit Post</button>
+  <button type="button" id="deleteBtn" class="btn btn-danger spacing">Delete Post</button>
 </section>
 {{/if}}
 
