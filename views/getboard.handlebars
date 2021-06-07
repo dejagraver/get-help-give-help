@@ -13,8 +13,8 @@
             </li>
             <li id="login-logout">
                 {{#if loggedIn}}
-                <a href="">Create New Post</a>
-                <button class="btn btn-light">logout</button>
+                <a href="" id="create-new">Create New Post</a>
+                <button class="btn btn-light" id="logoutBtn">logout</button>
                 {{else}}
                 <a href="/login" id="navlogin">sign up or log in</a>
                 {{/if}}
@@ -31,7 +31,8 @@
     {{#each posts as |post|}}
     <li>
         <article class="post">
-            <img src="/stylesheets/images/pngjoy.com_thumb-tack-board-pin-icon-png-png-download_10162438.png" alt="thumb-tack">
+            <img src="/stylesheets/images/pngjoy.com_thumb-tack-board-pin-icon-png-png-download_10162438.png"
+                alt="thumb-tack">
             <div class="title">
                 <a href="/getboard/{{post.id}}" target="_blank">{{post.title}}</a>
                 <span>{{post.content}}</span>
@@ -49,3 +50,6 @@
     </li>
     {{/each}}
 </ol>
+{{#if loggedIn}}
+<script src="/javascript/homepage.js"></script>
+{{/if}}

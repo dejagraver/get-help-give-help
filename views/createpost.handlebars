@@ -2,7 +2,7 @@
     <nav class="topnav" id="myTopnav">
         <ul>
             <li>
-                <a><u>Home</u></a>
+                <a href="/"><u>Home</u></a>
             </li>
             <li>
                 <a href="/giveboard" id="givenav">Give Help Board</a>
@@ -23,20 +23,21 @@
     </nav>
 </header>
 
-<main>
-    <div>
-        <h1>Get Help Give Help</h1>
-    </div>
-    <div class="alignbtns">
-        <div>
-            <a type="button" class="btn btn-light btn-lg" id="givebtn" href="/giveboard">give help</a>
-        </div>
-        <div>
-            <a type="button" class="btn btn-dark btn-lg" id="getbtn" href="/getboard">get help</a>
-        </div>
-    </div>
-</main>
+<article>
+    <form id="create-post-form">
+        <label>Choose a board:</label>
+        <select id="boardSelect">
+            <option value='1'>Give Help</option>
+            <option value='2'>Get Help</option>
+        </select>
+        <br><br>
+        <label for="post-title">Post Title:</label>
+        <input name="post-title" type="text" id="post-title">
+        <label for="post-content">Post Content:</label>
+        <textarea name="post-content" id="post-content"></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</article>
 
-{{#if loggedIn}}
-<script src="/javascript/homepage.js"></script>
-{{/if}}
+<script src="/javascript/create-post.js"></script>

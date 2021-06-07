@@ -14,4 +14,17 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/editpost', (req, res) => {
+    if (req.session.loggedIn) {
+        // add stylesheet for editpost here
+        res.render('editpost', { loggedIn: req.session.loggedIn });
+    }
+});
+
+router.get('/createpost', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('createpost', { loggedIn: req.session.loggedIn });
+    }
+})
+
 module.exports = router;

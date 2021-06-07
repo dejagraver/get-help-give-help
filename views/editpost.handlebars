@@ -1,27 +1,27 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <form >
-  <label>Choose a Board:</label>
-  <select>
-    <option value="1">GetBoard</option>
-    <option value="2">GiveBoard</option>
-  </select>
-  <br><br>
-  <input type="submit" value="Submit">
-  </form>
+  {{!-- <form>
+    <label>Choose a Board:</label>
+    {{!-- <select>
+      <option value="1">GetBoard</option>
+      <option value="2">GiveBoard</option>
+    </select> --}}
+    <br><br>
+    {{!-- <input type="submit" value="Submit"> --}}
+  </form> --}}
   <h2>
     Edit Post
   </h2>
   <form class="edit-post">
-    <div>
+    {{!-- <div>
       <input name="post-title" type="text" value="{{post.title}}" />
       <span>({{format_url post.post_url}})</span>
     </div>
-    <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+    <div> --}}
+      {{!-- {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
+    </div> --}}
     <button type="submit">Save post</button>
     <button type="button" class="btn btn-light">Delete post</button>
   </form>
@@ -32,12 +32,12 @@
     <textarea name="post-title"></textarea>
   </div>
 
-  <div>
+  {{!-- <div>
     <button type="submit">add comment</button>
-  </div>
+  </div> --}}
 </form>
 
-{{> comments post.comments}}
+{{!-- {{> comments post.comments}} --}}
 
 <script src="public/javascript/editpost.js"></script>
 <script src="/models/post.js"></script>
